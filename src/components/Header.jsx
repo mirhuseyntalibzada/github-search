@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 
-function Header({ inputkey }) {
+function Header({ inputKeyword, alertData }) {
 
     const [keyword, setKeyword] = useState();
+    const [alert] = useState("Your search did not match any users ¯\_(ツ)_/¯")
 
     const submittedForm = (e) => {
         e.preventDefault()
         if (!keyword) {
             alert("Please fill in the input")
         } else {
-            inputkey(keyword)
+            inputKeyword(keyword)
             setKeyword('')
+            alertData(alert)
         }
     }
 
